@@ -13,6 +13,4 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findAllByName(String name);
 
-//    User userByOffers (Offer offer);
-
 }

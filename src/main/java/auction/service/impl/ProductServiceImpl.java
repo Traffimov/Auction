@@ -1,5 +1,6 @@
 package auction.service.impl;
 
+import auction.converter.ProductConverter;
 import auction.dto.ProductDto;
 import auction.model.Product;
 import auction.repository.ProductRepository;
@@ -14,6 +15,7 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
+    private final ProductConverter productConverter;
 
     @Override
     public List<ProductDto> getAllByName(String name) {
@@ -23,22 +25,16 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<ProductDto> getAllProduct() {
         return null;
-        // return new ArrayList<ProductDto>(productRepository.findAll());
     }
 
     @Override
     public ProductDto getById(Long id) {
-//        Product product = productRepository.getById(id);
-//        return productConverter.toDto(product);
-        return null;
+        return productConverter.toDto(productRepository.getById(id));
     }
 
     @Override
     public ProductDto save(Product product) {
-        //Product product = productConverter.toDto(product);
-//        ProductDto productDto = productConverter.toDto(product);
-//        return productRepository.saveAndFlush(productDto);
-        return null;
+        return productConverter.toDto(productRepository.saveAndFlush(product));
     }
 
     @Override

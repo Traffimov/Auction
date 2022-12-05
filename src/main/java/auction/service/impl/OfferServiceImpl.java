@@ -45,29 +45,5 @@ public class OfferServiceImpl implements OfferService {
         offerRepository.saveAndFlush(offerConverter.toDto(offer));
     }
 
-//    @Override
-//    public List<OfferDto> getAllOfferByUserId(Long userId) {
-//        return offerRepository.offerByUserId(userId);
-//    }
-
-//    @Override
-//    public List<OfferDto> offerByUserName(String userName) {
-//        return offerRepository.offerByUserName(userName);
-//    }
-//
-//    @Override
-//    public List<OfferDto> offerByOfferName(String oferName) {
-//        return offerRepository.offerByOfferName(oferName);
-//    }
-//
-//    @Override
-//    public List<OfferDto> offerByProductName(String productName) {
-//        return offerRepository.offerByProductName(productName);
-//    }
-//
-//    @Override
-//    public List<OfferDto> offerByPriceAndProductName(double price, String productName) {
-//        return null;
-//    }
 
 }
