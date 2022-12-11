@@ -1,5 +1,6 @@
 package auction.service;
 
+import auction.dto.ProductCreationDto;
 import auction.dto.ProductDto;
 import auction.model.Product;
 
@@ -7,13 +8,13 @@ import java.util.List;
 
 public interface ProductService {
 
-    List<ProductDto> getAllByName(String name);
+    List<ProductDto> findProductsByName(String name);
 
-    List<ProductDto> getAllProduct();
+    List<ProductDto> findAll();
 
-    ProductDto getById(Long id);
+    ProductDto findProductById(Long id);
 
-    ProductDto save(Product product);
+    ProductDto save(ProductCreationDto productCreationDto);
 
     void delete(Long id);
 

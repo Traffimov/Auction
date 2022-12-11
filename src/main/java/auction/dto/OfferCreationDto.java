@@ -9,9 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
-public class OfferDto {
-
-    private Long id;
+public class OfferCreationDto {
 
     private String name;
 
@@ -19,9 +17,9 @@ public class OfferDto {
 
     private LocalDateTime startDate;
 
-    private Status status;
-
     private LocalDateTime endDate;
+
+    private Status status;
 
     private double price;
 

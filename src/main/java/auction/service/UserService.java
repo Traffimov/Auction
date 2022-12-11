@@ -1,22 +1,26 @@
 package auction.service;
 
+import auction.dto.UserDto;
 import auction.model.User;
-import auction.model.enums.UserRole;
 
 import java.util.List;
 
 public interface UserService {
 
-    List<User> getAllByRole(UserRole userRole);
+    List<User> findAll();
 
-    User findById(Long id);
+    List<User> findUsersByFirstNameAndLastName(String firstName, String lastName);
 
-    User save(User user);
+    User findUserByEmail(String email);
+
+    UserDto findUserById(Long id);
+
+    User save(UserDto userDto);
 
     void delete(Long id);
 
-    List<User> getByNickname(String nickName);
+    List<User> findUsersByName(String nickName);
 
-    void update(User user, Long id);
+    void update(UserDto userDto, Long id);
 
 }

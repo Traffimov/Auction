@@ -1,5 +1,6 @@
 package auction.converter;
 
+import auction.dto.ProductCreationDto;
 import auction.dto.ProductDto;
 import auction.model.Product;
 import org.springframework.stereotype.Component;
@@ -29,6 +30,30 @@ public class ProductConverter implements Converter<ProductDto, Product> {
             product.setName(productDto.getName());
             product.setPrice(productDto.getPrice());
             return product;
+        } else {
+            return null;
+        }
+    }
+
+    public Product toEntity(ProductCreationDto productCreationDto) {
+        if (productCreationDto != null) {
+            Product product = new Product();
+            product.setDescription(productCreationDto.getDescription());
+            product.setName(productCreationDto.getName());
+            product.setPrice(productCreationDto.getPrice());
+            return product;
+        } else {
+            return null;
+        }
+    }
+
+    public ProductDto toDto(ProductCreationDto productCreationDto) {
+        if (productCreationDto != null) {
+            ProductDto productDto = new ProductDto();
+            productDto.setDescription(productCreationDto.getDescription());
+            productDto.setName(productCreationDto.getName());
+            productDto.setPrice(productCreationDto.getPrice());
+            return productDto;
         } else {
             return null;
         }

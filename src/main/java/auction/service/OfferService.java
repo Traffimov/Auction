@@ -1,20 +1,28 @@
 package auction.service;
 
+import auction.dto.OfferCreationDto;
 import auction.dto.OfferDto;
 import auction.model.Offer;
+import auction.model.enums.Status;
 
 import java.util.List;
 
 public interface OfferService {
 
-    List<OfferDto> getAllOffer();
+    List<OfferDto> findOffersByUserName(String userName);
 
-    OfferDto getById(Long id);
+    List<OfferDto> findOffersByUserId(Long userId);
 
-    OfferDto save(Offer offer);
+    List<OfferDto> findAllOffer();
+
+    OfferDto findOfferById(Long id);
+
+    OfferDto save(OfferCreationDto offerCreationDto);
 
     void delete(Long id);
 
-    void updateOffer(Offer offer);
+    void updateOffer(OfferDto offerDto, Long id);
+
+    void updateStatus(Status status, Long id);
 
 }

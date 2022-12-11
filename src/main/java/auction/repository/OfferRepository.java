@@ -1,14 +1,18 @@
 package auction.repository;
 
-import auction.dto.OfferDto;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import auction.model.Offer;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-@Repository
-public interface OfferRepository extends JpaRepository<OfferDto, Long> {
+public interface OfferRepository extends CrudRepository<Offer, Long> {
 
-    List<OfferDto> offerByUserId(Long id);
+    List<Offer> findOffersByUserId(Long userId);
+
+    List<Offer> findOffersByUserName(String userName);
+
+    Offer findOfferById(Long id);
+
+    List<Offer> findAllBy();
 
 }

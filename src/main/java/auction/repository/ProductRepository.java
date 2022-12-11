@@ -1,14 +1,15 @@
 package auction.repository;
 
-import auction.dto.ProductDto;
 import auction.model.Product;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-@Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends CrudRepository<Product, Long> {
 
-    List<ProductDto> getProductByName(String name);
+    List<Product> findProductsByName(String name);
+
+    List<Product> findAllBy();
+
+    Product findProductById(Long id);
 }

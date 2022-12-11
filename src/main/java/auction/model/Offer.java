@@ -1,8 +1,13 @@
 package auction.model;
 
+import auction.model.enums.Status;
 import lombok.Data;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,9 +31,18 @@ public class Offer {
 
     private LocalDate creationDate;
 
+    private LocalDateTime startDate;
+
     private LocalDateTime endDate;
 
     private int amount;
+
+    private double price;
+
+    @Column(name = "status_id"/*, nullable = false*/)
+    @Enumerated(EnumType.STRING)
+    @CollectionTable(name = "offer_status", joinColumns = @JoinColumn(name = "offer_id"))
+    private Status status;
 
     private String description;
 
